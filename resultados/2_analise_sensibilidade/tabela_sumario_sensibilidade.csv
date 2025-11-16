@@ -1,0 +1,4 @@
+Tamanho do Enxame,Media_F1,Std_Dev_F1,Media_Precision,Std_Dev_Precision,Media_Recall,Std_Dev_Recall,Media_Fitness,Std_Dev_Fitness
+20,0.9733,0.0680,0.9733,0.0680,0.9733,0.0680,4.6312,0.1532
+40,0.9867,0.0499,0.9867,0.0499,0.9867,0.0499,4.6649,0.0959
+80,0.9867,0.0499,0.9867,0.0499,0.9867,0.0499,4.6753,0.0481

@@ -1,0 +1,389 @@
+[
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "MinMaxScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "GlobalBestPSO",
+        "importPath": "pyswarms.single.global_best",
+        "description": "pyswarms.single.global_best",
+        "isExtraImport": true,
+        "detail": "pyswarms.single.global_best",
+        "documentation": {}
+    },
+    {
+        "label": "fitness",
+        "importPath": "src.fitness",
+        "description": "src.fitness",
+        "isExtraImport": true,
+        "detail": "src.fitness",
+        "documentation": {}
+    },
+    {
+        "label": "decode_particle",
+        "importPath": "src.fitness",
+        "description": "src.fitness",
+        "isExtraImport": true,
+        "detail": "src.fitness",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "seaborn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "seaborn",
+        "description": "seaborn",
+        "detail": "seaborn",
+        "documentation": {}
+    },
+    {
+        "label": "f1_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "precision_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "recall_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "load_and_preprocess",
+        "importPath": "src.preprocess",
+        "description": "src.preprocess",
+        "isExtraImport": true,
+        "detail": "src.preprocess",
+        "documentation": {}
+    },
+    {
+        "label": "run_pso_recommender",
+        "importPath": "src.pso_recommender",
+        "description": "src.pso_recommender",
+        "isExtraImport": true,
+        "detail": "src.pso_recommender",
+        "documentation": {}
+    },
+    {
+        "label": "decode_particle",
+        "kind": 2,
+        "importPath": "src.fitness",
+        "description": "src.fitness",
+        "peekOfCode": "def decode_particle(position):\n    \"\"\"\n    Converte o vetor de posição contínua do PSO (ex: [0.5, 0.1, 0.9])\n    numa ordem de índices (ex: [1, 0, 2]), que representa o itinerário.\n    \"\"\"\n    # argsort() retorna os índices que ordenariam o array\n    return np.argsort(position)\ndef fitness(position, df, user_id, itinerary_size):\n    \"\"\"\n    Calcula o \"fitness\" (qualidade) de uma partícula (itinerário)",
+        "detail": "src.fitness",
+        "documentation": {}
+    },
+    {
+        "label": "fitness",
+        "kind": 2,
+        "importPath": "src.fitness",
+        "description": "src.fitness",
+        "peekOfCode": "def fitness(position, df, user_id, itinerary_size):\n    \"\"\"\n    Calcula o \"fitness\" (qualidade) de uma partícula (itinerário)\n    para um utilizador específico.\n    \"\"\"\n    try:\n        # 1. Obtém a linha de notas do utilizador (já normalizadas)\n        user_ratings = df.loc[user_id]\n    except KeyError:\n        print(f\"ERRO: O utilizador '{user_id}' não foi encontrado.\")",
+        "detail": "src.fitness",
+        "documentation": {}
+    },
+    {
+        "label": "load_and_preprocess",
+        "kind": 2,
+        "importPath": "src.preprocess",
+        "description": "src.preprocess",
+        "peekOfCode": "def load_and_preprocess(path=\"data/google_review_ratings.csv\"):\n    \"\"\"\n    Carrega, limpa e normaliza o dataset de avaliações.\n    \"\"\"\n    try:\n        df = pd.read_csv(path)\n    except FileNotFoundError:\n        print(f\"ERRO: O ficheiro {path} não foi encontrado.\")\n        return None\n    # Remove colunas que estejam completamente vazias",
+        "detail": "src.preprocess",
+        "documentation": {}
+    },
+    {
+        "label": "run_pso_recommender",
+        "kind": 2,
+        "importPath": "src.pso_recommender",
+        "description": "src.pso_recommender",
+        "peekOfCode": "def run_pso_recommender(df, user_id, n_particles, itinerary_size, verbose=True):\n    \"\"\"\n    Executa o otimizador PSO com um número de partículas configurável.\n    \"\"\"\n    num_dimensions = len(df.columns) # Uma dimensão para cada categoria\n    def objective_function(particles):\n        \"\"\"\n        Função de custo que o pyswarms irá minimizar.\n        'particles' é um array com todas as partículas do enxame.\n        \"\"\"",
+        "detail": "src.pso_recommender",
+        "documentation": {}
+    },
+    {
+        "label": "pso_scores",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "pso_scores = {\n    'Precision': 0.9933, \n    'Recall': 0.9933,\n    'F1-Score': 0.9933 \n}\nag_scores = {\n    'Precision': 0.9500, # Exemplo\n    'Recall': 0.9400,    # Exemplo\n    'F1-Score': 0.9450   # Exemplo\n}",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "ag_scores",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "ag_scores = {\n    'Precision': 0.9500, # Exemplo\n    'Recall': 0.9400,    # Exemplo\n    'F1-Score': 0.9450   # Exemplo\n}\n# -------------------------------------------------------------\n# --- 2. Lógica do Gráfico ---\nlabels = list(pso_scores.keys())\npso_values = list(pso_scores.values())\nag_values = list(ag_scores.values())",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "labels",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "labels = list(pso_scores.keys())\npso_values = list(pso_scores.values())\nag_values = list(ag_scores.values())\nx = np.arange(len(labels))\nwidth = 0.35  # Largura das barras\nfig, ax = plt.subplots(figsize=(12, 7))\n# Plotar as barras\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\n# Adicionar textos, títulos e legendas",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "pso_values",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "pso_values = list(pso_scores.values())\nag_values = list(ag_scores.values())\nx = np.arange(len(labels))\nwidth = 0.35  # Largura das barras\nfig, ax = plt.subplots(figsize=(12, 7))\n# Plotar as barras\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\n# Adicionar textos, títulos e legendas\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "ag_values",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "ag_values = list(ag_scores.values())\nx = np.arange(len(labels))\nwidth = 0.35  # Largura das barras\nfig, ax = plt.subplots(figsize=(12, 7))\n# Plotar as barras\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\n# Adicionar textos, títulos e legendas\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho: PSO vs. Algoritmo Genético', fontsize=16)",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "x = np.arange(len(labels))\nwidth = 0.35  # Largura das barras\nfig, ax = plt.subplots(figsize=(12, 7))\n# Plotar as barras\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\n# Adicionar textos, títulos e legendas\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "width",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "width = 0.35  # Largura das barras\nfig, ax = plt.subplots(figsize=(12, 7))\n# Plotar as barras\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\n# Adicionar textos, títulos e legendas\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "rects1",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "rects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\n# Adicionar textos, títulos e legendas\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)\nax.legend(fontsize=12)\nax.set_ylim(0, 1.1)\n# Adicionar rótulos de dados em cima das barras",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "rects2",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "rects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\n# Adicionar textos, títulos e legendas\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)\nax.legend(fontsize=12)\nax.set_ylim(0, 1.1)\n# Adicionar rótulos de dados em cima das barras\nax.bar_label(rects1, padding=3, fmt='%.4f')",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "output_dir",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "output_dir = \"resultados\"\nos.makedirs(output_dir, exist_ok=True)\nsave_path = os.path.join(output_dir, 'grafico_comparacao_final_pso_vs_ag.png')\nplt.savefig(save_path)\nprint(f\"Gráfico 'grafico_comparacao_final_pso_vs_ag.png' salvo em '{output_dir}'.\")",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "save_path",
+        "kind": 5,
+        "importPath": "plot_comparison",
+        "description": "plot_comparison",
+        "peekOfCode": "save_path = os.path.join(output_dir, 'grafico_comparacao_final_pso_vs_ag.png')\nplt.savefig(save_path)\nprint(f\"Gráfico 'grafico_comparacao_final_pso_vs_ag.png' salvo em '{output_dir}'.\")",
+        "detail": "plot_comparison",
+        "documentation": {}
+    },
+    {
+        "label": "criar_diretorio_com_readme",
+        "kind": 2,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "def criar_diretorio_com_readme(path, descricao):\n    \"\"\"\n    Cria um diretório e um ficheiro README.md com a descrição.\n    \"\"\"\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)\ndef executar_analise_exploratoria(output_dir):\n    \"\"\"",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "executar_analise_exploratoria",
+        "kind": 2,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "def executar_analise_exploratoria(output_dir):\n    \"\"\"\n    Executa a Análise Exploratória de Dados (EDA) e salva os resultados.\n    \"\"\"\n    print(\"--- 1. Iniciando Análise Exploratória de Dados (EDA) ---\")\n    df_raw = pd.read_csv(\"data/google_review_ratings.csv\")\n    df_raw = df_raw.dropna(axis=1, how='all')\n    if 'User' in df_raw.columns:\n        df_raw = df_raw.set_index('User')\n    for col in df_raw.columns:",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "create_y_true",
+        "kind": 2,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "def create_y_true(df, user_id, threshold):\n    user_ratings = df.loc[user_id]\n    y_true = (user_ratings >= threshold).astype(int)\n    return y_true\ndef create_y_pred(best_pos, num_categories, itinerary_size):\n    y_pred = np.zeros(num_categories)\n    ordered_indices = decode_particle(best_pos)\n    recommended_indices = ordered_indices[:itinerary_size]\n    y_pred[recommended_indices] = 1\n    return y_pred",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "create_y_pred",
+        "kind": 2,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "def create_y_pred(best_pos, num_categories, itinerary_size):\n    y_pred = np.zeros(num_categories)\n    ordered_indices = decode_particle(best_pos)\n    recommended_indices = ordered_indices[:itinerary_size]\n    y_pred[recommended_indices] = 1\n    return y_pred\n# -----------------------------------------------\ndef salvar_resultados_detalhados(output_dir, swarm_size, f1_scores, fitness_scores, best_history):\n    \"\"\"\n    NOVO: Salva a tabela de resultados brutos e os 3 gráficos detalhados",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "salvar_resultados_detalhados",
+        "kind": 2,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "def salvar_resultados_detalhados(output_dir, swarm_size, f1_scores, fitness_scores, best_history):\n    \"\"\"\n    NOVO: Salva a tabela de resultados brutos e os 3 gráficos detalhados\n    para uma execução específica da análise de sensibilidade.\n    \"\"\"\n    print(f\"Salvando gráficos detalhados para Enxame={swarm_size}...\")\n    # 1. Salvar tabela de resultados brutos (as 30 execuções)\n    results_data = {\n        'Execucao': np.arange(1, len(f1_scores) + 1),\n        'Fitness_Score': fitness_scores,",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "executar_analise_sensibilidade",
+        "kind": 2,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "def executar_analise_sensibilidade(output_dir):\n    \"\"\"\n    Executa a Análise de Sensibilidade do PSO para diferentes tamanhos de enxame.\n    \"\"\"\n    print(\"\\n--- 2. Iniciando Análise de Sensibilidade (Tamanho do Enxame) ---\")\n    df = load_and_preprocess()\n    if df is None: return\n    num_categories = len(df.columns)\n    y_true = create_y_true(df, TARGET_USER, LIKE_THRESHOLD)\n    print(f\"Dataset e 'y_true' para '{TARGET_USER}' carregados.\")",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "def main():\n    \"\"\"\n    Orquestrador principal: cria pastas e executa as análises.\n    \"\"\"\n    print(\"Iniciando a Execução Completa do TCC (PSO)...\")\n    criar_diretorio_com_readme(\n        EDA_DIR,\n        \"# Análise Exploratória de Dados (EDA)\\n\\n\"\n        \"Esta pasta contém os gráficos e tabelas da análise inicial do dataset.\"\n    )",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET_USER",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "TARGET_USER = \"User 55\"\nITINERARY_SIZE = 5\nLIKE_THRESHOLD = 0.5\nN_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\n# --- Configuração de Pastas de Resultado ---\nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "ITINERARY_SIZE",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "ITINERARY_SIZE = 5\nLIKE_THRESHOLD = 0.5\nN_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\n# --- Configuração de Pastas de Resultado ---\nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------\ndef criar_diretorio_com_readme(path, descricao):",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "LIKE_THRESHOLD",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "LIKE_THRESHOLD = 0.5\nN_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\n# --- Configuração de Pastas de Resultado ---\nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------\ndef criar_diretorio_com_readme(path, descricao):\n    \"\"\"",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "N_EXECUTIONS",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "N_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\n# --- Configuração de Pastas de Resultado ---\nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------\ndef criar_diretorio_com_readme(path, descricao):\n    \"\"\"\n    Cria um diretório e um ficheiro README.md com a descrição.",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "SWARM_SIZES_TO_TEST",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "SWARM_SIZES_TO_TEST = [20, 40, 80]\n# --- Configuração de Pastas de Resultado ---\nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------\ndef criar_diretorio_com_readme(path, descricao):\n    \"\"\"\n    Cria um diretório e um ficheiro README.md com a descrição.\n    \"\"\"",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_DIR",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "OUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------\ndef criar_diretorio_com_readme(path, descricao):\n    \"\"\"\n    Cria um diretório e um ficheiro README.md com a descrição.\n    \"\"\"\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "EDA_DIR",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "EDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------\ndef criar_diretorio_com_readme(path, descricao):\n    \"\"\"\n    Cria um diretório e um ficheiro README.md com a descrição.\n    \"\"\"\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "SENSITIVITY_DIR",
+        "kind": 5,
+        "importPath": "run_sensitivity_analysis",
+        "description": "run_sensitivity_analysis",
+        "peekOfCode": "SENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\n# ----------------------------------------------\ndef criar_diretorio_com_readme(path, descricao):\n    \"\"\"\n    Cria um diretório e um ficheiro README.md com a descrição.\n    \"\"\"\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)",
+        "detail": "run_sensitivity_analysis",
+        "documentation": {}
+    }
+]
