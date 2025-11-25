@@ -18,35 +18,12 @@
         "documentation": {}
     },
     {
-        "label": "MinMaxScaler",
-        "importPath": "sklearn.preprocessing",
-        "description": "sklearn.preprocessing",
+        "label": "os",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "sklearn.preprocessing",
-        "documentation": {}
-    },
-    {
-        "label": "GlobalBestPSO",
-        "importPath": "pyswarms.single.global_best",
-        "description": "pyswarms.single.global_best",
-        "isExtraImport": true,
-        "detail": "pyswarms.single.global_best",
-        "documentation": {}
-    },
-    {
-        "label": "fitness",
-        "importPath": "src.fitness",
-        "description": "src.fitness",
-        "isExtraImport": true,
-        "detail": "src.fitness",
-        "documentation": {}
-    },
-    {
-        "label": "decode_particle",
-        "importPath": "src.fitness",
-        "description": "src.fitness",
-        "isExtraImport": true,
-        "detail": "src.fitness",
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
         "documentation": {}
     },
     {
@@ -56,15 +33,6 @@
         "importPath": "matplotlib.pyplot",
         "description": "matplotlib.pyplot",
         "detail": "matplotlib.pyplot",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
         "documentation": {}
     },
     {
@@ -101,82 +69,231 @@
         "documentation": {}
     },
     {
-        "label": "load_and_preprocess",
-        "importPath": "src.preprocess",
-        "description": "src.preprocess",
+        "label": "carregar_e_processar_dados",
+        "importPath": "preprocessamento",
+        "description": "preprocessamento",
         "isExtraImport": true,
-        "detail": "src.preprocess",
+        "detail": "preprocessamento",
         "documentation": {}
     },
     {
-        "label": "run_pso_recommender",
-        "importPath": "src.pso_recommender",
-        "description": "src.pso_recommender",
+        "label": "executar_pso",
+        "importPath": "pso",
+        "description": "pso",
         "isExtraImport": true,
-        "detail": "src.pso_recommender",
+        "detail": "pso",
         "documentation": {}
     },
     {
-        "label": "decode_particle",
+        "label": "decodificar_particula",
+        "importPath": "fitness",
+        "description": "fitness",
+        "isExtraImport": true,
+        "detail": "fitness",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_fitness",
+        "importPath": "fitness",
+        "description": "fitness",
+        "isExtraImport": true,
+        "detail": "fitness",
+        "documentation": {}
+    },
+    {
+        "label": "MinMaxScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "GlobalBestPSO",
+        "importPath": "pyswarms.single.global_best",
+        "description": "pyswarms.single.global_best",
+        "isExtraImport": true,
+        "detail": "pyswarms.single.global_best",
+        "documentation": {}
+    },
+    {
+        "label": "decodificar_particula",
         "kind": 2,
         "importPath": "src.fitness",
         "description": "src.fitness",
-        "peekOfCode": "def decode_particle(position):\n    \"\"\"Converte o vetor do PSO em uma ordem de índices (itinerário).\"\"\"\n    return np.argsort(position)\ndef fitness(position, df, user_id, itinerary_size, user_preference_score):\n    \"\"\"\n    Calcula o \"fitness\" (qualidade da solução) usando a fórmula PONDERADA.\n    O objetivo é maximizar este score.\n    \"\"\"\n    try:\n        user_ratings = df.loc[user_id]",
+        "peekOfCode": "def decodificar_particula(posicao):\n    \"\"\"\n    Converte as posições contínuas do PSO em índices ordenados (ranking de categorias).\n    Retorna os índices das colunas que a partícula escolheu.\n    \"\"\"\n    return np.argsort(posicao)\ndef calcular_fitness(posicao, df_completo, id_usuario, tamanho_roteiro, fator_preferencia_usuario):\n    \"\"\"\n    Calcula a qualidade (score) da recomendação.\n    Objetivo: Maximizar este valor.",
         "detail": "src.fitness",
         "documentation": {}
     },
     {
-        "label": "fitness",
+        "label": "calcular_fitness",
         "kind": 2,
         "importPath": "src.fitness",
         "description": "src.fitness",
-        "peekOfCode": "def fitness(position, df, user_id, itinerary_size, user_preference_score):\n    \"\"\"\n    Calcula o \"fitness\" (qualidade da solução) usando a fórmula PONDERADA.\n    O objetivo é maximizar este score.\n    \"\"\"\n    try:\n        user_ratings = df.loc[user_id]\n    except KeyError:\n        return -np.inf \n    ordered_indices = decode_particle(position)",
+        "peekOfCode": "def calcular_fitness(posicao, df_completo, id_usuario, tamanho_roteiro, fator_preferencia_usuario):\n    \"\"\"\n    Calcula a qualidade (score) da recomendação.\n    Objetivo: Maximizar este valor.\n    \"\"\"\n    # 1. Obter as notas do usuário alvo\n    try:\n        notas_usuario = df_completo.loc[id_usuario]\n    except KeyError:\n        return -np.inf ",
         "detail": "src.fitness",
         "documentation": {}
     },
     {
-        "label": "PESOS_DE_FATOR",
+        "label": "PESOS",
         "kind": 5,
         "importPath": "src.fitness",
         "description": "src.fitness",
-        "peekOfCode": "PESOS_DE_FATOR = {\n    \"ratings\": 0.5,           # Peso: Nota do usuário (Satisfação)\n    \"preferencia_usuario\": 0.4, # Peso: Preferência subjetiva\n    \"popularidade_geral\": 0.1,  # Peso: Popularidade (Simulada por Category 7)\n    \"custo_inverso\": 0.5        # Peso: Custo (Simulado por Category 1)\n}\ndef decode_particle(position):\n    \"\"\"Converte o vetor do PSO em uma ordem de índices (itinerário).\"\"\"\n    return np.argsort(position)\ndef fitness(position, df, user_id, itinerary_size, user_preference_score):",
+        "peekOfCode": "PESOS = {\n    \"nota_usuario\": 0.6,        # Peso Principal: O quanto o usuário gostou dessas categorias\n    \"fator_preferencia\": 0.3,   # Peso: Preferência subjetiva (reforço)\n    \"popularidade_geral\": 0.1   # Peso: O quanto essas categorias são bem avaliadas por todos\n}\ndef decodificar_particula(posicao):\n    \"\"\"\n    Converte as posições contínuas do PSO em índices ordenados (ranking de categorias).\n    Retorna os índices das colunas que a partícula escolheu.\n    \"\"\"",
         "detail": "src.fitness",
         "documentation": {}
     },
     {
-        "label": "load_and_preprocess",
+        "label": "criar_diretorio",
         "kind": 2,
-        "importPath": "src.preprocess",
-        "description": "src.preprocess",
-        "peekOfCode": "def load_and_preprocess(path=\"data/google_review_ratings.csv\"):\n    \"\"\"Carrega, limpa (imputação com 0) e aplica a Normalização Min-Max.\"\"\"\n    try:\n        df = pd.read_csv(path)\n    except FileNotFoundError:\n        return None\n    df = df.dropna(axis=1, how='all')\n    if 'User' in df.columns:\n        df = df.set_index('User')\n    else:",
-        "detail": "src.preprocess",
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def criar_diretorio(caminho):\n    os.makedirs(caminho, exist_ok=True)\ndef criar_gabarito_real(df, id_usuario, limiar):\n    notas_usuario = df.loc[id_usuario]\n    y_real = (notas_usuario >= limiar).astype(int)\n    return y_real\ndef criar_predicao(posicao_particula, num_categorias, tamanho_roteiro):\n    y_pred = np.zeros(num_categorias)\n    indices_ordenados = decodificar_particula(posicao_particula)\n    indices_recomendados = indices_ordenados[:tamanho_roteiro]",
+        "detail": "src.main",
         "documentation": {}
     },
     {
-        "label": "run_pso_recommender",
+        "label": "criar_gabarito_real",
         "kind": 2,
-        "importPath": "src.pso_recommender",
-        "description": "src.pso_recommender",
-        "peekOfCode": "def run_pso_recommender(df, user_id, n_particles, itinerary_size, user_preference_score, verbose=True):\n    \"\"\"\n    Executa o otimizador PSO, passando o fator de preferência para o cálculo do fitness.\n    \"\"\"\n    num_dimensions = len(df.columns)\n    def objective_function(particles):\n        \"\"\"Função de custo que o pyswarms minimiza (Fitness * -1).\"\"\"\n        scores = []\n        for p in particles:\n            score = fitness(p, df, user_id, itinerary_size, user_preference_score)",
-        "detail": "src.pso_recommender",
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def criar_gabarito_real(df, id_usuario, limiar):\n    notas_usuario = df.loc[id_usuario]\n    y_real = (notas_usuario >= limiar).astype(int)\n    return y_real\ndef criar_predicao(posicao_particula, num_categorias, tamanho_roteiro):\n    y_pred = np.zeros(num_categorias)\n    indices_ordenados = decodificar_particula(posicao_particula)\n    indices_recomendados = indices_ordenados[:tamanho_roteiro]\n    y_pred[indices_recomendados] = 1\n    return y_pred",
+        "detail": "src.main",
         "documentation": {}
     },
     {
-        "label": "pso_scores",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "pso_scores = {\n    'Precision': 0.9867, \n    'Recall': 0.9867,\n    'F1-Score': 0.9867 \n}\nag_scores = {\n    'Precision': 0.9500,\n    'Recall': 0.9400,\n    'F1-Score': 0.9450 \n}",
-        "detail": "plot_comparison",
+        "label": "criar_predicao",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def criar_predicao(posicao_particula, num_categorias, tamanho_roteiro):\n    y_pred = np.zeros(num_categorias)\n    indices_ordenados = decodificar_particula(posicao_particula)\n    indices_recomendados = indices_ordenados[:tamanho_roteiro]\n    y_pred[indices_recomendados] = 1\n    return y_pred\ndef salvar_graficos_individuais(output_dir, tamanho_enxame, lista_f1, historico_convergencia):\n    sns.set(style=\"whitegrid\")\n    # 1. Boxplot\n    plt.figure(figsize=(10, 6))",
+        "detail": "src.main",
         "documentation": {}
     },
     {
-        "label": "ag_scores",
+        "label": "salvar_graficos_individuais",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def salvar_graficos_individuais(output_dir, tamanho_enxame, lista_f1, historico_convergencia):\n    sns.set(style=\"whitegrid\")\n    # 1. Boxplot\n    plt.figure(figsize=(10, 6))\n    sns.boxplot(data=lista_f1, palette=\"pastel\")\n    sns.swarmplot(data=lista_f1, color=\".25\")\n    plt.title(f'Estabilidade do F1-Score (Enxame={tamanho_enxame})', fontsize=16)\n    plt.ylabel('F1-Score')\n    plt.savefig(os.path.join(output_dir, 'grafico_boxplot_f1.png'))\n    plt.close()",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "gerar_grafico_comparativo",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def gerar_grafico_comparativo(df_resumo, output_dir):\n    \"\"\"\n    Gera um gráfico de barras comparando a média do F1-Score\n    entre os diferentes tamanhos de enxame (20, 40, 80).\n    \"\"\"\n    plt.figure(figsize=(10, 6))\n    x = [str(t) for t in df_resumo['Tamanho_Enxame']] \n    y = df_resumo['Media_F1']\n    erro = df_resumo['Desvio_Padrao_F1']\n    barras = plt.bar(x, y, yerr=erro, capsize=5, color=['lightblue', 'steelblue', 'darkblue'], edgecolor='black')",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "mostrar_roteiro_final",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def mostrar_roteiro_final(melhor_posicao_global, df, tamanho_roteiro):\n    print(\"\\n\" + \"=\"*50)\n    print(f\" MELHOR ROTEIRO ENCONTRADO (TOP {tamanho_roteiro}) \")\n    print(\"=\"*50)\n    indices_ordenados = decodificar_particula(melhor_posicao_global)\n    indices_escolhidos = indices_ordenados[:tamanho_roteiro]\n    nomes_colunas = df.columns[indices_escolhidos]\n    for i, col_name in enumerate(nomes_colunas):\n        nome_real = MAPA_CATEGORIAS.get(col_name, col_name)\n        print(f\"{i+1}º Lugar: {nome_real}\")",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def main():\n    print(\"--- INICIANDO SISTEMA DE RECOMENDAÇÃO (PSO) ---\")\n    criar_diretorio(DIRETORIO_SAIDA)\n    df = carregar_e_processar_dados(\"data/google_review_ratings.csv\")\n    if df is None: return\n    num_categorias = len(df.columns)\n    y_real = criar_gabarito_real(df, USUARIO_ALVO, LIMIAR_GOSTO)\n    tabela_resumo = []\n    melhor_posicao_de_todas = None\n    melhor_fitness_de_todos = -np.inf",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "USUARIO_ALVO",
         "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "ag_scores = {\n    'Precision': 0.9500,\n    'Recall': 0.9400,\n    'F1-Score': 0.9450 \n}\nlabels = list(pso_scores.keys())\npso_values = list(pso_scores.values())\nag_values = list(ag_scores.values())\nx = np.arange(len(labels))\nwidth = 0.35",
-        "detail": "plot_comparison",
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "USUARIO_ALVO = \"User 55\"\nTAMANHO_ROTEIRO = 5       \nLIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 30        \nTAMANHOS_ENXAME = [20, 40, 80] \nFATOR_PREFERENCIA = 0.9   \nDIRETORIO_SAIDA = \"resultados\"\nMAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "TAMANHO_ROTEIRO",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "TAMANHO_ROTEIRO = 5       \nLIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 30        \nTAMANHOS_ENXAME = [20, 40, 80] \nFATOR_PREFERENCIA = 0.9   \nDIRETORIO_SAIDA = \"resultados\"\nMAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',\n    'Category 7': 'Shoppings', 'Category 8': 'Zoológicos', 'Category 9': 'Restaurantes',",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "LIMIAR_GOSTO",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "LIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 30        \nTAMANHOS_ENXAME = [20, 40, 80] \nFATOR_PREFERENCIA = 0.9   \nDIRETORIO_SAIDA = \"resultados\"\nMAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',\n    'Category 7': 'Shoppings', 'Category 8': 'Zoológicos', 'Category 9': 'Restaurantes',\n    'Category 10': 'Bares e Pubs', 'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias',",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "NUM_EXECUCOES",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "NUM_EXECUCOES = 30        \nTAMANHOS_ENXAME = [20, 40, 80] \nFATOR_PREFERENCIA = 0.9   \nDIRETORIO_SAIDA = \"resultados\"\nMAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',\n    'Category 7': 'Shoppings', 'Category 8': 'Zoológicos', 'Category 9': 'Restaurantes',\n    'Category 10': 'Bares e Pubs', 'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias',\n    'Category 13': 'Hotéis', 'Category 14': 'Casas de Suco', 'Category 15': 'Galerias de Arte',",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "TAMANHOS_ENXAME",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "TAMANHOS_ENXAME = [20, 40, 80] \nFATOR_PREFERENCIA = 0.9   \nDIRETORIO_SAIDA = \"resultados\"\nMAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',\n    'Category 7': 'Shoppings', 'Category 8': 'Zoológicos', 'Category 9': 'Restaurantes',\n    'Category 10': 'Bares e Pubs', 'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias',\n    'Category 13': 'Hotéis', 'Category 14': 'Casas de Suco', 'Category 15': 'Galerias de Arte',\n    'Category 16': 'Baladas', 'Category 17': 'Piscinas', 'Category 18': 'Academias',",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "FATOR_PREFERENCIA",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "FATOR_PREFERENCIA = 0.9   \nDIRETORIO_SAIDA = \"resultados\"\nMAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',\n    'Category 7': 'Shoppings', 'Category 8': 'Zoológicos', 'Category 9': 'Restaurantes',\n    'Category 10': 'Bares e Pubs', 'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias',\n    'Category 13': 'Hotéis', 'Category 14': 'Casas de Suco', 'Category 15': 'Galerias de Arte',\n    'Category 16': 'Baladas', 'Category 17': 'Piscinas', 'Category 18': 'Academias',\n    'Category 19': 'Padarias', 'Category 20': 'Spas', 'Category 21': 'Cafés',",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "DIRETORIO_SAIDA",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "DIRETORIO_SAIDA = \"resultados\"\nMAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',\n    'Category 7': 'Shoppings', 'Category 8': 'Zoológicos', 'Category 9': 'Restaurantes',\n    'Category 10': 'Bares e Pubs', 'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias',\n    'Category 13': 'Hotéis', 'Category 14': 'Casas de Suco', 'Category 15': 'Galerias de Arte',\n    'Category 16': 'Baladas', 'Category 17': 'Piscinas', 'Category 18': 'Academias',\n    'Category 19': 'Padarias', 'Category 20': 'Spas', 'Category 21': 'Cafés',\n    'Category 22': 'Mirantes', 'Category 23': 'Monumentos', 'Category 24': 'Jardins'",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "MAPA_CATEGORIAS",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "MAPA_CATEGORIAS = {\n    'Category 1': 'Igrejas', 'Category 2': 'Resorts', 'Category 3': 'Praias',\n    'Category 4': 'Parques', 'Category 5': 'Teatros', 'Category 6': 'Museus',\n    'Category 7': 'Shoppings', 'Category 8': 'Zoológicos', 'Category 9': 'Restaurantes',\n    'Category 10': 'Bares e Pubs', 'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias',\n    'Category 13': 'Hotéis', 'Category 14': 'Casas de Suco', 'Category 15': 'Galerias de Arte',\n    'Category 16': 'Baladas', 'Category 17': 'Piscinas', 'Category 18': 'Academias',\n    'Category 19': 'Padarias', 'Category 20': 'Spas', 'Category 21': 'Cafés',\n    'Category 22': 'Mirantes', 'Category 23': 'Monumentos', 'Category 24': 'Jardins'\n}",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "carregar_e_processar_dados",
+        "kind": 2,
+        "importPath": "src.preprocessamento",
+        "description": "src.preprocessamento",
+        "peekOfCode": "def carregar_e_processar_dados(caminho=\"data/google_review_ratings.csv\"):\n    \"\"\"\n    Carrega o CSV, remove colunas vazias, trata erros numéricos \n    e normaliza os dados entre 0 e 1.\n    \"\"\"\n    try:\n        df = pd.read_csv(caminho)\n    except FileNotFoundError:\n        print(f\"Erro: Arquivo {caminho} não encontrado.\")\n        return None",
+        "detail": "src.preprocessamento",
+        "documentation": {}
+    },
+    {
+        "label": "executar_pso",
+        "kind": 2,
+        "importPath": "src.pso",
+        "description": "src.pso",
+        "peekOfCode": "def executar_pso(df, id_usuario, num_particulas, tamanho_roteiro, fator_preferencia, verbose=True):\n    \"\"\"\n    Executa o otimizador PSO.\n    Nome da função ajustado para bater com o main.py (executar_pso).\n    \"\"\"\n    num_dimensoes = len(df.columns)\n    def funcao_objetivo(particulas):\n        \"\"\"Função de custo que o pyswarms minimiza (Fitness * -1).\"\"\"\n        scores = []\n        for p in particulas:",
+        "detail": "src.pso",
         "documentation": {}
     },
     {
@@ -258,150 +375,6 @@
         "description": "plot_comparison",
         "peekOfCode": "save_path = os.path.join(output_dir, 'grafico_comparacao_final_pso_vs_ag.png')\nplt.savefig(save_path)\nprint(f\"Gráfico de Comparação Final salvo em '{output_dir}'.\")",
         "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "criar_diretorio_com_readme",
-        "kind": 2,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "def criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)\ndef create_y_true(df, user_id, threshold):\n    user_ratings = df.loc[user_id]\n    y_true = (user_ratings >= threshold).astype(int)\n    return y_true\ndef create_y_pred(best_pos, num_categories, itinerary_size):",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "create_y_true",
-        "kind": 2,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "def create_y_true(df, user_id, threshold):\n    user_ratings = df.loc[user_id]\n    y_true = (user_ratings >= threshold).astype(int)\n    return y_true\ndef create_y_pred(best_pos, num_categories, itinerary_size):\n    y_pred = np.zeros(num_categories)\n    ordered_indices = decode_particle(best_pos)\n    recommended_indices = ordered_indices[:itinerary_size]\n    y_pred[recommended_indices] = 1\n    return y_pred",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "create_y_pred",
-        "kind": 2,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "def create_y_pred(best_pos, num_categories, itinerary_size):\n    y_pred = np.zeros(num_categories)\n    ordered_indices = decode_particle(best_pos)\n    recommended_indices = ordered_indices[:itinerary_size]\n    y_pred[recommended_indices] = 1\n    return y_pred\ndef salvar_resultados_detalhados(output_dir, swarm_size, f1_scores, fitness_scores, best_history):\n    \"\"\"Salva a tabela de resultados brutos e os 3 gráficos detalhados de uma execução.\"\"\"\n    results_data = {\n        'Execucao': np.arange(1, len(f1_scores) + 1),",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "salvar_resultados_detalhados",
-        "kind": 2,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "def salvar_resultados_detalhados(output_dir, swarm_size, f1_scores, fitness_scores, best_history):\n    \"\"\"Salva a tabela de resultados brutos e os 3 gráficos detalhados de uma execução.\"\"\"\n    results_data = {\n        'Execucao': np.arange(1, len(f1_scores) + 1),\n        'Fitness_Score': fitness_scores,\n        'F1_Score': f1_scores\n    }\n    df_results = pd.DataFrame(results_data)\n    df_results.to_csv(os.path.join(output_dir, 'tabela_resultados_brutos.csv'), index=False, float_format='%.4f')\n    sns.set(style=\"whitegrid\")",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "executar_analise_exploratoria",
-        "kind": 2,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "def executar_analise_exploratoria(output_dir):\n    \"\"\"Executa a Análise Exploratória de Dados (EDA).\"\"\"\n    print(\"--- 1. Iniciando Análise Exploratória de Dados (EDA) ---\")\n    df_raw = pd.read_csv(\"data/google_review_ratings.csv\")\n    df_raw = df_raw.dropna(axis=1, how='all')\n    if 'User' in df_raw.columns:\n        df_raw = df_raw.set_index('User')\n    for col in df_raw.columns:\n        df_raw[col] = pd.to_numeric(df_raw[col], errors='coerce')\n    df_raw = df_raw.fillna(0)",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "executar_analise_sensibilidade",
-        "kind": 2,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "def executar_analise_sensibilidade(output_dir):\n    \"\"\"Executa a Análise de Sensibilidade do PSO para diferentes tamanhos de enxame.\"\"\"\n    print(\"\\n--- 2. Iniciando Análise de Sensibilidade (Tamanho do Enxame) ---\")\n    df = load_and_preprocess(\"data/google_review_ratings.csv\")\n    if df is None: return\n    num_categories = len(df.columns)\n    y_true = create_y_true(df, TARGET_USER, LIKE_THRESHOLD)\n    summary_results = {\n        'Tamanho do Enxame': [],\n        'Media_F1': [], 'Std_Dev_F1': [],",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "def main():\n    print(\"Iniciando a Execução Completa do TCC (PSO) com Função de Fitness Ponderada...\")\n    os.makedirs(OUTPUT_DIR, exist_ok=True)\n    criar_diretorio_com_readme(EDA_DIR, \"# Análise Exploratória de Dados (EDA)\")\n    criar_diretorio_com_readme(SENSITIVITY_DIR, \"# Análise de Sensibilidade do PSO\")\n    executar_analise_exploratoria(EDA_DIR)\n    executar_analise_sensibilidade(SENSITIVITY_DIR)\n    print(\"\\n--- EXECUÇÃO COMPLETA FINALIZADA ---\")\nif __name__ == \"__main__\":\n    main()",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "TARGET_USER",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "TARGET_USER = \"User 55\"\nITINERARY_SIZE = 5\nLIKE_THRESHOLD = 0.5\nN_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\nUSER_PREFERENCE_FACTOR = 0.9 \nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "ITINERARY_SIZE",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "ITINERARY_SIZE = 5\nLIKE_THRESHOLD = 0.5\nN_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\nUSER_PREFERENCE_FACTOR = 0.9 \nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "LIKE_THRESHOLD",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "LIKE_THRESHOLD = 0.5\nN_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\nUSER_PREFERENCE_FACTOR = 0.9 \nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "N_EXECUTIONS",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "N_EXECUTIONS = 30\nSWARM_SIZES_TO_TEST = [20, 40, 80]\nUSER_PREFERENCE_FACTOR = 0.9 \nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "SWARM_SIZES_TO_TEST",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "SWARM_SIZES_TO_TEST = [20, 40, 80]\nUSER_PREFERENCE_FACTOR = 0.9 \nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "USER_PREFERENCE_FACTOR",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "USER_PREFERENCE_FACTOR = 0.9 \nOUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)\ndef create_y_true(df, user_id, threshold):",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "OUTPUT_DIR",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "OUTPUT_DIR = \"resultados\"\nEDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)\ndef create_y_true(df, user_id, threshold):\n    user_ratings = df.loc[user_id]",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "EDA_DIR",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "EDA_DIR = os.path.join(OUTPUT_DIR, \"1_analise_exploratoria\")\nSENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)\ndef create_y_true(df, user_id, threshold):\n    user_ratings = df.loc[user_id]\n    y_true = (user_ratings >= threshold).astype(int)",
-        "detail": "run_sensitivity_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "SENSITIVITY_DIR",
-        "kind": 5,
-        "importPath": "run_sensitivity_analysis",
-        "description": "run_sensitivity_analysis",
-        "peekOfCode": "SENSITIVITY_DIR = os.path.join(OUTPUT_DIR, \"2_analise_sensibilidade\")\ndef criar_diretorio_com_readme(path, descricao):\n    os.makedirs(path, exist_ok=True)\n    readme_path = os.path.join(path, \"README.md\")\n    with open(readme_path, \"w\", encoding=\"utf-8\") as f:\n        f.write(descricao)\ndef create_y_true(df, user_id, threshold):\n    user_ratings = df.loc[user_id]\n    y_true = (user_ratings >= threshold).astype(int)\n    return y_true",
-        "detail": "run_sensitivity_analysis",
         "documentation": {}
     }
 ]

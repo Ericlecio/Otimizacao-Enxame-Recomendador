@@ -3,17 +3,17 @@ import numpy as np
 import os
 
 
-pso_scores = {
-    'Precision': 0.9867, 
-    'Recall': 0.9867,
-    'F1-Score': 0.9867 
-}
+# pso_scores = {
+#     'Precision': 0.9867, 
+#     'Recall': 0.9867,
+#     'F1-Score': 0.9867 
+# }
 
-ag_scores = {
-    'Precision': 0.9500,
-    'Recall': 0.9400,
-    'F1-Score': 0.9450 
-}
+# ag_scores = {
+#     'Precision': 0.9500,
+#     'Recall': 0.9400,
+#     'F1-Score': 0.9450 
+# }
 
 labels = list(pso_scores.keys())
 pso_values = list(pso_scores.values())

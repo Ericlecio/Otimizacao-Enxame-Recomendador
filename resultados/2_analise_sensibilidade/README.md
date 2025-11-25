@@ -1,1 +1,0 @@
-# Análise de Sensibilidade do PSO

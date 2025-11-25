@@ -1,50 +1,50 @@
 import numpy as np
 import pandas as pd
 
-PESOS_DE_FATOR = {
-    "ratings": 0.5,           # Peso: Nota do usuário (Satisfação)
-    "preferencia_usuario": 0.4, # Peso: Preferência subjetiva
-    "popularidade_geral": 0.1,  # Peso: Popularidade (Simulada por Category 7)
-    "custo_inverso": 0.5        # Peso: Custo (Simulado por Category 1)
+PESOS = {
+    "nota_usuario": 0.6,        # Peso Principal: O quanto o usuário gostou dessas categorias
+    "fator_preferencia": 0.3,   # Peso: Preferência subjetiva (reforço)
+    "popularidade_geral": 0.1   # Peso: O quanto essas categorias são bem avaliadas por todos
 }
 
-
-def decode_particle(position):
-    """Converte o vetor do PSO em uma ordem de índices (itinerário)."""
-    return np.argsort(position)
-
-def fitness(position, df, user_id, itinerary_size, user_preference_score):
+def decodificar_particula(posicao):
     """
-    Calcula o "fitness" (qualidade da solução) usando a fórmula PONDERADA.
-    O objetivo é maximizar este score.
+    Converte as posições contínuas do PSO em índices ordenados (ranking de categorias).
+    Retorna os índices das colunas que a partícula escolheu.
+    """
+    return np.argsort(posicao)
+
+def calcular_fitness(posicao, df_completo, id_usuario, tamanho_roteiro, fator_preferencia_usuario):
+    """
+    Calcula a qualidade (score) da recomendação.
+    Objetivo: Maximizar este valor.
     """
     
+    # 1. Obter as notas do usuário alvo
     try:
-        user_ratings = df.loc[user_id]
+        notas_usuario = df_completo.loc[id_usuario]
     except KeyError:
         return -np.inf 
 
-    ordered_indices = decode_particle(position)
-    itinerary_category_indices = ordered_indices[:itinerary_size]
+    # 2. Decodificar quais categorias a partícula escolheu
+    indices_ordenados = decodificar_particula(posicao)
+    indices_escolhidos = indices_ordenados[:tamanho_roteiro]
 
-    
-    # 1. Nota de Preferência (Satisfação)
-    ratings_score = user_ratings.iloc[itinerary_category_indices].mean()
+    # A. Nota de Satisfação (Média das notas que o usuário deu para as categorias escolhidas)
+    # Seleciona as colunas baseadas nos índices escolhidos
+    score_nota_usuario = notas_usuario.iloc[indices_escolhidos].mean()
 
-    # 2. Custo (Usamos 1.0 - Custo para MINIMIZAR o preço)
-    custo_score = 1.0 - df.iloc[itinerary_category_indices]['Category 1'].mean()
-
-    # 3. Popularidade Geral (Simulada pela Category 7)
-    popularidade_score = df.iloc[itinerary_category_indices]['Category 7'].mean()
+    # B. Popularidade Geral (Média da nota dessas categorias para TODOS os usuários)
+    # df_completo.iloc[:, indices] pega todas as linhas das colunas escolhidas
+    score_popularidade = df_completo.iloc[:, indices_escolhidos].mean().mean()
     
-    # 4. Fator Subjetivo
-    preferencia_subjetiva = user_preference_score * ratings_score
+    # C. Fator Subjetivo (Reforço baseado na configuração do sistema)
+    score_subjetivo = fator_preferencia_usuario * score_nota_usuario
     
-    score = (
-        PESOS_DE_FATOR['ratings'] * ratings_score + 
-        PESOS_DE_FATOR['preferencia_usuario'] * preferencia_subjetiva +
-        PESOS_DE_FATOR['popularidade_geral'] * popularidade_score +
-        PESOS_DE_FATOR['custo_inverso'] * custo_score
+    score_final = (
+        PESOS['nota_usuario'] * score_nota_usuario + 
+        PESOS['fator_preferencia'] * score_subjetivo +
+        PESOS['popularidade_geral'] * score_popularidade
     )
 
-    return score
+    return score_final

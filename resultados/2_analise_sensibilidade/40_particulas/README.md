@@ -1,1 +1,0 @@
-# Resultados Detalhados (Enxame = 40)
