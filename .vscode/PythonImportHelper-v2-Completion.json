@@ -220,7 +220,7 @@
         "kind": 5,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "USUARIO_ALVO = \"User 55\"\nTAMANHO_ROTEIRO = 5       \nLIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',",
+        "peekOfCode": "USUARIO_ALVO = \"User 1\"\nTAMANHO_ROTEIRO = 5       \nLIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',",
         "detail": "src.main",
         "documentation": {}
     },
@@ -238,7 +238,7 @@
         "kind": 5,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "LIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (BemEstar)',",
+        "peekOfCode": "LIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',",
         "detail": "src.main",
         "documentation": {}
     },
@@ -247,7 +247,7 @@
         "kind": 5,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "NUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (BemEstar)',\n    'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias (Gastronomia)',",
+        "peekOfCode": "NUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',",
         "detail": "src.main",
         "documentation": {}
     },
@@ -256,7 +256,7 @@
         "kind": 5,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "TAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (BemEstar)',\n    'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', ",
+        "peekOfCode": "TAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', ",
         "detail": "src.main",
         "documentation": {}
     },
@@ -265,7 +265,7 @@
         "kind": 5,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "DIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (BemEstar)',\n    'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', \n    'Category 15': 'Galerias Arte (Histórico)', 'Category 16': 'Baladas (BemEstar)', ",
+        "peekOfCode": "DIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', \n    'Category 15': 'Galerias Arte (Histórico)', 'Category 16': 'Baladas (BemEstar)', ",
         "detail": "src.main",
         "documentation": {}
     },
@@ -274,7 +274,7 @@
         "kind": 5,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "MAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (BemEstar)',\n    'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', \n    'Category 15': 'Galerias Arte (Histórico)', 'Category 16': 'Baladas (BemEstar)', \n    'Category 17': 'Piscinas (BemEstar)', 'Category 18': 'Academias (BemEstar)',",
+        "peekOfCode": "MAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', \n    'Category 15': 'Galerias Arte (Histórico)', 'Category 16': 'Baladas (BemEstar)', \n    'Category 17': 'Piscinas (BemEstar)', 'Category 18': 'Academias (BemEstar)',",
         "detail": "src.main",
         "documentation": {}
     },

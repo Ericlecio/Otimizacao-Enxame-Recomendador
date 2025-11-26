@@ -9,7 +9,7 @@ from preprocessamento import carregar_e_processar_dados
 from pso import executar_pso
 from fitness import decodificar_particula, calcular_perfil_usuario, MAPA_GRUPOS
 
-USUARIO_ALVO = "User 55"
+USUARIO_ALVO = "User 1"
 TAMANHO_ROTEIRO = 5       
 LIMIAR_GOSTO = 0.5        
 NUM_EXECUCOES = 20        
@@ -21,8 +21,8 @@ MAPA_NOMES = {
     'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', 
     'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',
     'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', 
-    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (BemEstar)',
-    'Category 11': 'Serviços Locais', 'Category 12': 'Pizzarias (Gastronomia)',
+    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',
+    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',
     'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', 
     'Category 15': 'Galerias Arte (Histórico)', 'Category 16': 'Baladas (BemEstar)', 
     'Category 17': 'Piscinas (BemEstar)', 'Category 18': 'Academias (BemEstar)',
