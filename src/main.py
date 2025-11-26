@@ -7,7 +7,7 @@ from sklearn.metrics import f1_score
 
 from preprocessamento import carregar_e_processar_dados
 from pso import executar_pso
-from fitness import decodificar_particula, calcular_perfil_usuario, MAPA_GRUPOS
+from fitness import decodificar_particula, calcular_perfil_usuario
 
 USUARIO_ALVO = "User 1"
 TAMANHO_ROTEIRO = 5       
@@ -58,6 +58,19 @@ def mostrar_roteiro_final(posicao, df):
     for i, c in enumerate(cols):
         print(f"{i+1}. {MAPA_NOMES.get(c, c)}")
 
+def formatar_tempo(segundos_totais):
+    """
+    Formata o tempo de forma inteligente:
+    - Se < 60s: mostra apenas segundos (ex: "3.50s")
+    - Se >= 60s: mostra minutos e segundos (ex: "1m 15s")
+    """
+    if segundos_totais < 60:
+        return f"{segundos_totais:.2f}s"
+    else:
+        minutos = int(segundos_totais // 60)
+        segundos = int(segundos_totais % 60)
+        return f"{minutos}m {segundos}s"
+
 def main():
     print(">>> INICIANDO OTIMIZAÇÃO COM ENGENHARIA DE FEATURES <<<")
     criar_diretorio(DIRETORIO_SAIDA)
@@ -104,12 +117,15 @@ def main():
         media_tempo = np.mean(tempos)
         media_f1 = np.mean(f1s)
         
-        print(f"  Média F1: {media_f1:.4f} | Tempo Médio Convergência: {media_tempo:.4f}s")
+        tempo_str = formatar_tempo(media_tempo)
+        
+        print(f"  Média F1: {media_f1:.4f} | Tempo Médio: {tempo_str}")
         
         tabela_resumo.append({
             "Enxame": n_particulas,
             "F1_Score": media_f1,
-            "Tempo_Convergencia_Seg": media_tempo,
+            "Tempo_Segundos": media_tempo, 
+            "Tempo_Formatado": tempo_str,   
             "Melhor_Fitness": np.max(fits)
         })
 
@@ -117,7 +133,7 @@ def main():
     df_res.to_csv(os.path.join(DIRETORIO_SAIDA, "analise_final.csv"), index=False)
     
     print("\n--- TABELA FINAL DE PERFORMANCE ---")
-    print(df_res)
+    print(df_res[['Enxame', 'F1_Score', 'Tempo_Formatado', 'Melhor_Fitness']])
     
     if melhor_global_pos is not None:
         mostrar_roteiro_final(melhor_global_pos, df)
@@ -126,7 +142,7 @@ def main():
     sns.barplot(
         data=df_res, 
         x='Enxame', 
-        y='Tempo_Convergencia_Seg', 
+        y='Tempo_Segundos', 
         hue='Enxame',   
         palette='magma', 
         legend=False        

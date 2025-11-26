@@ -61,6 +61,14 @@
         "documentation": {}
     },
     {
+        "label": "carregar_e_processar_dados",
+        "importPath": "preprocessamento",
+        "description": "preprocessamento",
+        "isExtraImport": true,
+        "detail": "preprocessamento",
+        "documentation": {}
+    },
+    {
         "label": "executar_pso",
         "importPath": "pso",
         "description": "pso",
@@ -85,7 +93,7 @@
         "documentation": {}
     },
     {
-        "label": "MAPA_GRUPOS",
+        "label": "calcular_fitness",
         "importPath": "fitness",
         "description": "fitness",
         "isExtraImport": true,
@@ -93,7 +101,7 @@
         "documentation": {}
     },
     {
-        "label": "calcular_fitness",
+        "label": "MAPA_GRUPOS",
         "importPath": "fitness",
         "description": "fitness",
         "isExtraImport": true,
@@ -202,7 +210,16 @@
         "kind": 2,
         "importPath": "src.main",
         "description": "src.main",
-        "peekOfCode": "def mostrar_roteiro_final(posicao, df):\n    print(\"\\n--- MELHOR ROTEIRO OTIMIZADO ---\")\n    idx = decodificar_particula(posicao)[:TAMANHO_ROTEIRO]\n    cols = df.columns[idx]\n    for i, c in enumerate(cols):\n        print(f\"{i+1}. {MAPA_NOMES.get(c, c)}\")\ndef main():\n    print(\">>> INICIANDO OTIMIZAÇÃO COM ENGENHARIA DE FEATURES <<<\")\n    criar_diretorio(DIRETORIO_SAIDA)\n    caminho_arquivo = \"google_review_ratings.csv\" ",
+        "peekOfCode": "def mostrar_roteiro_final(posicao, df):\n    print(\"\\n--- MELHOR ROTEIRO OTIMIZADO ---\")\n    idx = decodificar_particula(posicao)[:TAMANHO_ROTEIRO]\n    cols = df.columns[idx]\n    for i, c in enumerate(cols):\n        print(f\"{i+1}. {MAPA_NOMES.get(c, c)}\")\ndef formatar_tempo(segundos_totais):\n    \"\"\"\n    Formata o tempo de forma inteligente:\n    - Se < 60s: mostra apenas segundos (ex: \"3.50s\")",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "formatar_tempo",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def formatar_tempo(segundos_totais):\n    \"\"\"\n    Formata o tempo de forma inteligente:\n    - Se < 60s: mostra apenas segundos (ex: \"3.50s\")\n    - Se >= 60s: mostra minutos e segundos (ex: \"1m 15s\")\n    \"\"\"\n    if segundos_totais < 60:\n        return f\"{segundos_totais:.2f}s\"\n    else:\n        minutos = int(segundos_totais // 60)",
         "detail": "src.main",
         "documentation": {}
     },
@@ -294,6 +311,33 @@
         "description": "src.pso",
         "peekOfCode": "def executar_pso(df, id_usuario, num_particulas, tamanho_roteiro, pesos_perfil, verbose=True):\n    \"\"\"\n    Executa o PSO e mede o tempo de convergência.\n    \"\"\"\n    num_dimensoes = len(df.columns)\n    inicio_tempo = time.time()\n    def funcao_objetivo(particulas):\n        scores = []\n        for p in particulas:\n            score = calcular_fitness(p, df, id_usuario, tamanho_roteiro, pesos_perfil)",
         "detail": "src.pso",
+        "documentation": {}
+    },
+    {
+        "label": "auditar_calculo",
+        "kind": 2,
+        "importPath": "src.teste_auditoria",
+        "description": "src.teste_auditoria",
+        "peekOfCode": "def auditar_calculo():\n    print(f\"--- AUDITORIA DE CÁLCULO PARA: {USUARIO_ALVO} ---\")\n    # 1. Carregar Dados\n    df = carregar_e_processar_dados(\"data/google_review_ratings.csv\")\n    if df is None: return\n    # 2. Pegar índices do grupo \"Natureza\"\n    indices_natureza = MAPA_GRUPOS[GRUPO_TESTE]\n    print(f\"\\n1. Grupo '{GRUPO_TESTE}' usa as colunas de índice: {indices_natureza}\")\n    # 3. Dados do Usuário\n    notas_usuario = df.loc[USUARIO_ALVO].iloc[indices_natureza]",
+        "detail": "src.teste_auditoria",
+        "documentation": {}
+    },
+    {
+        "label": "USUARIO_ALVO",
+        "kind": 5,
+        "importPath": "src.teste_auditoria",
+        "description": "src.teste_auditoria",
+        "peekOfCode": "USUARIO_ALVO = \"User 55\"\nGRUPO_TESTE = \"Natureza\"\ndef auditar_calculo():\n    print(f\"--- AUDITORIA DE CÁLCULO PARA: {USUARIO_ALVO} ---\")\n    # 1. Carregar Dados\n    df = carregar_e_processar_dados(\"data/google_review_ratings.csv\")\n    if df is None: return\n    # 2. Pegar índices do grupo \"Natureza\"\n    indices_natureza = MAPA_GRUPOS[GRUPO_TESTE]\n    print(f\"\\n1. Grupo '{GRUPO_TESTE}' usa as colunas de índice: {indices_natureza}\")",
+        "detail": "src.teste_auditoria",
+        "documentation": {}
+    },
+    {
+        "label": "GRUPO_TESTE",
+        "kind": 5,
+        "importPath": "src.teste_auditoria",
+        "description": "src.teste_auditoria",
+        "peekOfCode": "GRUPO_TESTE = \"Natureza\"\ndef auditar_calculo():\n    print(f\"--- AUDITORIA DE CÁLCULO PARA: {USUARIO_ALVO} ---\")\n    # 1. Carregar Dados\n    df = carregar_e_processar_dados(\"data/google_review_ratings.csv\")\n    if df is None: return\n    # 2. Pegar índices do grupo \"Natureza\"\n    indices_natureza = MAPA_GRUPOS[GRUPO_TESTE]\n    print(f\"\\n1. Grupo '{GRUPO_TESTE}' usa as colunas de índice: {indices_natureza}\")\n    # 3. Dados do Usuário",
+        "detail": "src.teste_auditoria",
         "documentation": {}
     },
     {
