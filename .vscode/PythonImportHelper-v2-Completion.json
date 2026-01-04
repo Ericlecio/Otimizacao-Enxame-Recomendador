@@ -1,11 +1,66 @@
 [
     {
-        "label": "numpy",
-        "kind": 6,
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
         "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "carregar_dados",
+        "importPath": "core.dados",
+        "description": "core.dados",
+        "isExtraImport": true,
+        "detail": "core.dados",
+        "documentation": {}
+    },
+    {
+        "label": "carregar_dados",
+        "importPath": "core.dados",
+        "description": "core.dados",
+        "isExtraImport": true,
+        "detail": "core.dados",
+        "documentation": {}
+    },
+    {
+        "label": "carregar_dados",
+        "importPath": "core.dados",
+        "description": "core.dados",
+        "isExtraImport": true,
+        "detail": "core.dados",
+        "documentation": {}
+    },
+    {
+        "label": "gerar_roteiro_pso",
+        "importPath": "core.pso",
+        "description": "core.pso",
+        "isExtraImport": true,
+        "detail": "core.pso",
+        "documentation": {}
+    },
+    {
+        "label": "gerar_roteiro_pso",
+        "importPath": "core.pso",
+        "description": "core.pso",
+        "isExtraImport": true,
+        "detail": "core.pso",
         "documentation": {}
     },
     {
@@ -18,12 +73,94 @@
         "documentation": {}
     },
     {
-        "label": "os",
+        "label": "MinMaxScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "MAPA_GRUPOS",
+        "importPath": "core.perfil",
+        "description": "core.perfil",
+        "isExtraImport": true,
+        "detail": "core.perfil",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_perfil_usuario",
+        "importPath": "core.perfil",
+        "description": "core.perfil",
+        "isExtraImport": true,
+        "detail": "core.perfil",
+        "documentation": {}
+    },
+    {
+        "label": "GlobalBestPSO",
+        "importPath": "pyswarms.single.global_best",
+        "description": "pyswarms.single.global_best",
+        "isExtraImport": true,
+        "detail": "pyswarms.single.global_best",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_fitness",
+        "importPath": "core.fitness",
+        "description": "core.fitness",
+        "isExtraImport": true,
+        "detail": "core.fitness",
+        "documentation": {}
+    },
+    {
+        "label": "decodificar_particula",
+        "importPath": "core.fitness",
+        "description": "core.fitness",
+        "isExtraImport": true,
+        "detail": "core.fitness",
+        "documentation": {}
+    },
+    {
+        "label": "CATEGORIAS",
+        "importPath": "core.categorias",
+        "description": "core.categorias",
+        "isExtraImport": true,
+        "detail": "core.categorias",
+        "documentation": {}
+    },
+    {
+        "label": "CATEGORIAS",
+        "importPath": "core.categorias",
+        "description": "core.categorias",
+        "isExtraImport": true,
+        "detail": "core.categorias",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
         "documentation": {}
     },
     {
@@ -36,389 +173,183 @@
         "documentation": {}
     },
     {
-        "label": "seaborn",
+        "label": "Requisicao",
         "kind": 6,
-        "isExtraImport": true,
-        "importPath": "seaborn",
-        "description": "seaborn",
-        "detail": "seaborn",
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "class Requisicao(BaseModel):\n    user_id: str\n    tamanho: int = 5\n    categorias_bloqueadas: List[str] = []\n@app.post(\"/gerar-roteiro\")\ndef gerar(req: Requisicao):\n    return gerar_roteiro_pso(\n        df=df,\n        user_id=req.user_id,\n        tamanho=req.tamanho,",
+        "detail": "api.app",
         "documentation": {}
     },
     {
-        "label": "f1_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
+        "label": "gerar",
+        "kind": 2,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "def gerar(req: Requisicao):\n    return gerar_roteiro_pso(\n        df=df,\n        user_id=req.user_id,\n        tamanho=req.tamanho,\n        categorias_bloqueadas=req.categorias_bloqueadas\n    )",
+        "detail": "api.app",
         "documentation": {}
     },
     {
-        "label": "carregar_e_processar_dados",
-        "importPath": "preprocessamento",
-        "description": "preprocessamento",
-        "isExtraImport": true,
-        "detail": "preprocessamento",
+        "label": "app",
+        "kind": 5,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "app = FastAPI(title=\"API Recomendador PSO\")\ndf = carregar_dados(\"data/google_review_ratings.csv\")\nclass Requisicao(BaseModel):\n    user_id: str\n    tamanho: int = 5\n    categorias_bloqueadas: List[str] = []\n@app.post(\"/gerar-roteiro\")\ndef gerar(req: Requisicao):\n    return gerar_roteiro_pso(\n        df=df,",
+        "detail": "api.app",
         "documentation": {}
     },
     {
-        "label": "carregar_e_processar_dados",
-        "importPath": "preprocessamento",
-        "description": "preprocessamento",
-        "isExtraImport": true,
-        "detail": "preprocessamento",
+        "label": "df",
+        "kind": 5,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "df = carregar_dados(\"data/google_review_ratings.csv\")\nclass Requisicao(BaseModel):\n    user_id: str\n    tamanho: int = 5\n    categorias_bloqueadas: List[str] = []\n@app.post(\"/gerar-roteiro\")\ndef gerar(req: Requisicao):\n    return gerar_roteiro_pso(\n        df=df,\n        user_id=req.user_id,",
+        "detail": "api.app",
         "documentation": {}
     },
     {
-        "label": "executar_pso",
-        "importPath": "pso",
-        "description": "pso",
-        "isExtraImport": true,
-        "detail": "pso",
+        "label": "CATEGORIAS",
+        "kind": 5,
+        "importPath": "core.categorias",
+        "description": "core.categorias",
+        "peekOfCode": "CATEGORIAS = {\n    \"Category 1\": \"Churches\",\n    \"Category 2\": \"Resorts\",\n    \"Category 3\": \"Beaches\",\n    \"Category 4\": \"Parks\",\n    \"Category 5\": \"Theatres\",\n    \"Category 6\": \"Museums\",\n    \"Category 7\": \"Malls\",\n    \"Category 8\": \"Zoo\",\n    \"Category 9\": \"Restaurants\",",
+        "detail": "core.categorias",
         "documentation": {}
     },
     {
-        "label": "decodificar_particula",
-        "importPath": "fitness",
-        "description": "fitness",
-        "isExtraImport": true,
-        "detail": "fitness",
-        "documentation": {}
-    },
-    {
-        "label": "calcular_perfil_usuario",
-        "importPath": "fitness",
-        "description": "fitness",
-        "isExtraImport": true,
-        "detail": "fitness",
-        "documentation": {}
-    },
-    {
-        "label": "calcular_fitness",
-        "importPath": "fitness",
-        "description": "fitness",
-        "isExtraImport": true,
-        "detail": "fitness",
-        "documentation": {}
-    },
-    {
-        "label": "MAPA_GRUPOS",
-        "importPath": "fitness",
-        "description": "fitness",
-        "isExtraImport": true,
-        "detail": "fitness",
-        "documentation": {}
-    },
-    {
-        "label": "MinMaxScaler",
-        "importPath": "sklearn.preprocessing",
-        "description": "sklearn.preprocessing",
-        "isExtraImport": true,
-        "detail": "sklearn.preprocessing",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "GlobalBestPSO",
-        "importPath": "pyswarms.single.global_best",
-        "description": "pyswarms.single.global_best",
-        "isExtraImport": true,
-        "detail": "pyswarms.single.global_best",
+        "label": "carregar_dados",
+        "kind": 2,
+        "importPath": "core.dados",
+        "description": "core.dados",
+        "peekOfCode": "def carregar_dados(caminho):\n    df = pd.read_csv(caminho)\n    if 'User' in df.columns:\n        df = df.set_index('User')\n    df = df.apply(pd.to_numeric, errors='coerce').fillna(0)\n    scaler = MinMaxScaler()\n    df[df.columns] = scaler.fit_transform(df[df.columns])\n    return df",
+        "detail": "core.dados",
         "documentation": {}
     },
     {
         "label": "decodificar_particula",
         "kind": 2,
-        "importPath": "src.fitness",
-        "description": "src.fitness",
-        "peekOfCode": "def decodificar_particula(posicao):\n    \"\"\"Converte posição contínua em índices inteiros.\"\"\"\n    return np.argsort(posicao)\ndef calcular_perfil_usuario(df_completo, id_usuario):\n    \"\"\"\n    FEATURE ENGINEERING AVANÇADA:\n    Calcula a afinidade comparando o usuário com a POPULAÇÃO (Dataset Inteiro).\n    Lógica: \n    Se o usuário dá nota 4.0 em algo que a média global é 2.0, ele tem ALTA afinidade.\n    Se ele dá 4.0 em algo que a média global é 4.5, a afinidade é BAIXA/NORMAL.",
-        "detail": "src.fitness",
-        "documentation": {}
-    },
-    {
-        "label": "calcular_perfil_usuario",
-        "kind": 2,
-        "importPath": "src.fitness",
-        "description": "src.fitness",
-        "peekOfCode": "def calcular_perfil_usuario(df_completo, id_usuario):\n    \"\"\"\n    FEATURE ENGINEERING AVANÇADA:\n    Calcula a afinidade comparando o usuário com a POPULAÇÃO (Dataset Inteiro).\n    Lógica: \n    Se o usuário dá nota 4.0 em algo que a média global é 2.0, ele tem ALTA afinidade.\n    Se ele dá 4.0 em algo que a média global é 4.5, a afinidade é BAIXA/NORMAL.\n    \"\"\"\n    try:\n        notas_usuario = df_completo.loc[id_usuario]",
-        "detail": "src.fitness",
+        "importPath": "core.fitness",
+        "description": "core.fitness",
+        "peekOfCode": "def decodificar_particula(posicao):\n    return np.argsort(posicao)\ndef calcular_fitness(posicao, df, user_id, tamanho, pesos):\n    indices = decodificar_particula(posicao)[:tamanho]\n    notas_user = df.loc[user_id]\n    score = 0.0\n    for idx in indices:\n        peso = 1.0\n        for grupo, idxs in MAPA_GRUPOS.items():\n            if idx in idxs:",
+        "detail": "core.fitness",
         "documentation": {}
     },
     {
         "label": "calcular_fitness",
         "kind": 2,
-        "importPath": "src.fitness",
-        "description": "src.fitness",
-        "peekOfCode": "def calcular_fitness(posicao, df_completo, id_usuario, tamanho_roteiro, pesos_perfil_usuario):\n    \"\"\"\n    Função Fitness Otimizada com Pesos Relativos.\n    \"\"\"\n    indices_ordenados = decodificar_particula(posicao)\n    indices_escolhidos = indices_ordenados[:tamanho_roteiro]\n    notas_usuario = df_completo.loc[id_usuario]\n    score_total = 0\n    for idx in indices_escolhidos:\n        nota_item = notas_usuario.iloc[idx]",
-        "detail": "src.fitness",
+        "importPath": "core.fitness",
+        "description": "core.fitness",
+        "peekOfCode": "def calcular_fitness(posicao, df, user_id, tamanho, pesos):\n    indices = decodificar_particula(posicao)[:tamanho]\n    notas_user = df.loc[user_id]\n    score = 0.0\n    for idx in indices:\n        peso = 1.0\n        for grupo, idxs in MAPA_GRUPOS.items():\n            if idx in idxs:\n                peso = pesos.get(grupo, 1.0)\n                break",
+        "detail": "core.fitness",
+        "documentation": {}
+    },
+    {
+        "label": "calcular_perfil_usuario",
+        "kind": 2,
+        "importPath": "core.perfil",
+        "description": "core.perfil",
+        "peekOfCode": "def calcular_perfil_usuario(df, user_id):\n    notas_user = df.loc[user_id]\n    media_global = df.mean()\n    pesos = {}\n    for grupo, idxs in MAPA_GRUPOS.items():\n        idxs_validos = [i for i in idxs if i < len(df.columns)]\n        if not idxs_validos:\n            continue\n        diff = notas_user.iloc[idxs_validos].mean() - media_global.iloc[idxs_validos].mean()\n        pesos[grupo] = max(0.1, 1.0 + diff)",
+        "detail": "core.perfil",
         "documentation": {}
     },
     {
         "label": "MAPA_GRUPOS",
         "kind": 5,
-        "importPath": "src.fitness",
-        "description": "src.fitness",
-        "peekOfCode": "MAPA_GRUPOS = {\n    'Historico': [0, 5, 14, 22],       # Igrejas, Museus, Galerias, Monumentos\n    'Natureza': [2, 3, 7, 21, 23],     # Praias, Parques, Zoo, Mirantes, Jardins\n    'Gastronomia': [8, 9, 11, 13, 18, 20], # Restaurantes, Pubs, Burger, Sucos, Padarias, Cafés\n    'Entretenimento': [4, 6, 15],      # Teatros, Shoppings, Baladas\n    'Estadia': [1, 12],                # Resorts, Hoteis\n    'BemEstar': [10, 16, 17, 19]       # Serviços Locais, Piscinas, Academias, Spas\n}\ndef decodificar_particula(posicao):\n    \"\"\"Converte posição contínua em índices inteiros.\"\"\"",
-        "detail": "src.fitness",
+        "importPath": "core.perfil",
+        "description": "core.perfil",
+        "peekOfCode": "MAPA_GRUPOS = {\n    'Historico': [0, 5, 14, 22],\n    'Natureza': [2, 3, 7, 21, 23],\n    'Gastronomia': [8, 9, 11, 13, 18, 20],\n    'Entretenimento': [4, 6, 15],\n    'Estadia': [1, 12],\n    'BemEstar': [10, 16, 17, 19]\n}\ndef calcular_perfil_usuario(df, user_id):\n    notas_user = df.loc[user_id]",
+        "detail": "core.perfil",
         "documentation": {}
     },
     {
-        "label": "criar_diretorio",
+        "label": "gerar_roteiro_pso",
         "kind": 2,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "def criar_diretorio(caminho):\n    os.makedirs(caminho, exist_ok=True)\ndef criar_gabarito_real(df, id_usuario, limiar):\n    notas = df.loc[id_usuario]\n    return (notas >= limiar).astype(int)\ndef criar_predicao(posicao, num_cats, tamanho):\n    y_pred = np.zeros(num_cats)\n    idx = decodificar_particula(posicao)[:tamanho]\n    y_pred[idx] = 1\n    return y_pred",
-        "detail": "src.main",
+        "importPath": "core.pso",
+        "description": "core.pso",
+        "peekOfCode": "def gerar_roteiro_pso(df, user_id, tamanho=5, n_particulas=40, categorias_bloqueadas=None):\n    if categorias_bloqueadas is None:\n        categorias_bloqueadas = []\n    dim = len(df.columns)\n    pesos = calcular_perfil_usuario(df, user_id)\n    colunas_validas = [\n        i for i, c in enumerate(df.columns)\n        if c not in categorias_bloqueadas\n    ]\n    def objective(particles):",
+        "detail": "core.pso",
         "documentation": {}
     },
     {
-        "label": "criar_gabarito_real",
-        "kind": 2,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "def criar_gabarito_real(df, id_usuario, limiar):\n    notas = df.loc[id_usuario]\n    return (notas >= limiar).astype(int)\ndef criar_predicao(posicao, num_cats, tamanho):\n    y_pred = np.zeros(num_cats)\n    idx = decodificar_particula(posicao)[:tamanho]\n    y_pred[idx] = 1\n    return y_pred\ndef mostrar_perfil_engenharia(pesos):\n    print(\"\\n--- ENGENHARIA DE FEATURES: PERFIL DO USUÁRIO ---\")",
-        "detail": "src.main",
-        "documentation": {}
-    },
-    {
-        "label": "criar_predicao",
-        "kind": 2,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "def criar_predicao(posicao, num_cats, tamanho):\n    y_pred = np.zeros(num_cats)\n    idx = decodificar_particula(posicao)[:tamanho]\n    y_pred[idx] = 1\n    return y_pred\ndef mostrar_perfil_engenharia(pesos):\n    print(\"\\n--- ENGENHARIA DE FEATURES: PERFIL DO USUÁRIO ---\")\n    print(f\"Pesos calculados automaticamente para {USUARIO_ALVO}:\")\n    df_p = pd.DataFrame(list(pesos.items()), columns=['Grupo', 'Peso (Afinidade)'])\n    print(df_p.sort_values(by='Peso (Afinidade)', ascending=False))",
-        "detail": "src.main",
-        "documentation": {}
-    },
-    {
-        "label": "mostrar_perfil_engenharia",
-        "kind": 2,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "def mostrar_perfil_engenharia(pesos):\n    print(\"\\n--- ENGENHARIA DE FEATURES: PERFIL DO USUÁRIO ---\")\n    print(f\"Pesos calculados automaticamente para {USUARIO_ALVO}:\")\n    df_p = pd.DataFrame(list(pesos.items()), columns=['Grupo', 'Peso (Afinidade)'])\n    print(df_p.sort_values(by='Peso (Afinidade)', ascending=False))\n    print(\"--------------------------------------------------\\n\")\ndef mostrar_roteiro_final(posicao, df):\n    print(\"\\n--- MELHOR ROTEIRO OTIMIZADO ---\")\n    idx = decodificar_particula(posicao)[:TAMANHO_ROTEIRO]\n    cols = df.columns[idx]",
-        "detail": "src.main",
-        "documentation": {}
-    },
-    {
-        "label": "mostrar_roteiro_final",
-        "kind": 2,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "def mostrar_roteiro_final(posicao, df):\n    print(\"\\n--- MELHOR ROTEIRO OTIMIZADO ---\")\n    idx = decodificar_particula(posicao)[:TAMANHO_ROTEIRO]\n    cols = df.columns[idx]\n    for i, c in enumerate(cols):\n        print(f\"{i+1}. {MAPA_NOMES.get(c, c)}\")\ndef formatar_tempo(segundos_totais):\n    \"\"\"\n    Formata o tempo de forma inteligente:\n    - Se < 60s: mostra apenas segundos (ex: \"3.50s\")",
-        "detail": "src.main",
-        "documentation": {}
-    },
-    {
-        "label": "formatar_tempo",
-        "kind": 2,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "def formatar_tempo(segundos_totais):\n    \"\"\"\n    Formata o tempo de forma inteligente:\n    - Se < 60s: mostra apenas segundos (ex: \"3.50s\")\n    - Se >= 60s: mostra minutos e segundos (ex: \"1m 15s\")\n    \"\"\"\n    if segundos_totais < 60:\n        return f\"{segundos_totais:.2f}s\"\n    else:\n        minutos = int(segundos_totais // 60)",
-        "detail": "src.main",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "def main():\n    print(\">>> INICIANDO OTIMIZAÇÃO COM ENGENHARIA DE FEATURES <<<\")\n    criar_diretorio(DIRETORIO_SAIDA)\n    caminho_arquivo = \"google_review_ratings.csv\" \n    if not os.path.exists(caminho_arquivo):\n        caminho_arquivo = \"data/google_review_ratings.csv\"\n    df = carregar_e_processar_dados(caminho_arquivo)\n    if df is None: return\n    pesos_perfil = calcular_perfil_usuario(df, USUARIO_ALVO)\n    mostrar_perfil_engenharia(pesos_perfil)",
-        "detail": "src.main",
-        "documentation": {}
-    },
-    {
-        "label": "USUARIO_ALVO",
+        "label": "API_URL",
         "kind": 5,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "USUARIO_ALVO = \"User 1\"\nTAMANHO_ROTEIRO = 5       \nLIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',",
-        "detail": "src.main",
+        "importPath": "dashboard",
+        "description": "dashboard",
+        "peekOfCode": "API_URL = \"http://127.0.0.1:8000/gerar-roteiro\"\n# =============================\n# CONFIGURAÇÃO DA PÁGINA\n# =============================\nst.set_page_config(\n    page_title=\"Sistema de Priorização\",\n    layout=\"wide\"\n)\nst.title(\"Sistema Inteligente de Priorização\")\nst.caption(",
+        "detail": "dashboard",
         "documentation": {}
     },
     {
-        "label": "TAMANHO_ROTEIRO",
+        "label": "df",
         "kind": 5,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "TAMANHO_ROTEIRO = 5       \nLIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', ",
-        "detail": "src.main",
+        "importPath": "dashboard",
+        "description": "dashboard",
+        "peekOfCode": "df = carregar_dados(\"data/google_review_ratings.csv\")\n# =============================\n# SIDEBAR – CONFIGURAÇÕES\n# =============================\nst.sidebar.header(\"Configurações da Análise\")\nusuario = st.sidebar.selectbox(\n    \"Entidade analisada\",\n    df.index.tolist()\n)\ntamanho = st.sidebar.slider(",
+        "detail": "dashboard",
         "documentation": {}
     },
     {
-        "label": "LIMIAR_GOSTO",
+        "label": "usuario",
         "kind": 5,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "LIMIAR_GOSTO = 0.5        \nNUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',",
-        "detail": "src.main",
+        "importPath": "dashboard",
+        "description": "dashboard",
+        "peekOfCode": "usuario = st.sidebar.selectbox(\n    \"Entidade analisada\",\n    df.index.tolist()\n)\ntamanho = st.sidebar.slider(\n    \"Quantidade de itens priorizados\",\n    min_value=1,\n    max_value=10,\n    value=5\n)",
+        "detail": "dashboard",
         "documentation": {}
     },
     {
-        "label": "NUM_EXECUCOES",
+        "label": "tamanho",
         "kind": 5,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "NUM_EXECUCOES = 20        \nTAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',",
-        "detail": "src.main",
+        "importPath": "dashboard",
+        "description": "dashboard",
+        "peekOfCode": "tamanho = st.sidebar.slider(\n    \"Quantidade de itens priorizados\",\n    min_value=1,\n    max_value=10,\n    value=5\n)\nbloqueadas = st.sidebar.multiselect(\n    \"Categorias excluídas da análise\",\n    options=df.columns.tolist(),\n    format_func=lambda x: CATEGORIAS.get(x, x)",
+        "detail": "dashboard",
         "documentation": {}
     },
     {
-        "label": "TAMANHOS_ENXAME",
+        "label": "bloqueadas",
         "kind": 5,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "TAMANHOS_ENXAME = [20, 40, 80] \nDIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', ",
-        "detail": "src.main",
+        "importPath": "dashboard",
+        "description": "dashboard",
+        "peekOfCode": "bloqueadas = st.sidebar.multiselect(\n    \"Categorias excluídas da análise\",\n    options=df.columns.tolist(),\n    format_func=lambda x: CATEGORIAS.get(x, x)\n)\ngerar = st.sidebar.button(\"Gerar Prioridade\")\n# =============================\n# EXECUÇÃO\n# =============================\nif gerar:",
+        "detail": "dashboard",
         "documentation": {}
     },
     {
-        "label": "DIRETORIO_SAIDA",
+        "label": "gerar",
         "kind": 5,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "DIRETORIO_SAIDA = \"resultados_otimizados\"\nMAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', \n    'Category 15': 'Galerias Arte (Histórico)', 'Category 16': 'Baladas (BemEstar)', ",
-        "detail": "src.main",
+        "importPath": "dashboard",
+        "description": "dashboard",
+        "peekOfCode": "gerar = st.sidebar.button(\"Gerar Prioridade\")\n# =============================\n# EXECUÇÃO\n# =============================\nif gerar:\n    payload = {\n        \"user_id\": usuario,\n        \"tamanho\": tamanho,\n        \"categorias_bloqueadas\": bloqueadas\n    }",
+        "detail": "dashboard",
         "documentation": {}
     },
     {
-        "label": "MAPA_NOMES",
+        "label": "df",
         "kind": 5,
-        "importPath": "src.main",
-        "description": "src.main",
-        "peekOfCode": "MAPA_NOMES = {\n    'Category 1': 'Igrejas (Histórico)', 'Category 2': 'Resorts (Estadia)', \n    'Category 3': 'Praias (Natureza)', 'Category 4': 'Parques (Natureza)', \n    'Category 5': 'Teatros (Entretenimento)', 'Category 6': 'Museus (Histórico)',\n    'Category 7': 'Shoppings (Entretenimento)', 'Category 8': 'Zoológicos (Natureza)', \n    'Category 9': 'Restaurantes (Gastronomia)', 'Category 10': 'Pubs/Bares (Gastronomia)',\n    'Category 11': 'Serviços Locais (BemEstar)', 'Category 12': 'Pizzarias (Gastronomia)',\n    'Category 13': 'Hotéis (Estadia)', 'Category 14': 'Sucos (Gastronomia)', \n    'Category 15': 'Galerias Arte (Histórico)', 'Category 16': 'Baladas (BemEstar)', \n    'Category 17': 'Piscinas (BemEstar)', 'Category 18': 'Academias (BemEstar)',",
-        "detail": "src.main",
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "df = carregar_dados(\"data/google_review_ratings.csv\")\nuser_id = df.index[0]\nresultado = gerar_roteiro_pso(\n    df=df,\n    user_id=user_id,\n    tamanho_roteiro=5\n)\nprint(resultado)",
+        "detail": "main",
         "documentation": {}
     },
     {
-        "label": "carregar_e_processar_dados",
-        "kind": 2,
-        "importPath": "src.preprocessamento",
-        "description": "src.preprocessamento",
-        "peekOfCode": "def carregar_e_processar_dados(caminho=\"data/google_review_ratings.csv\"):\n    \"\"\"\n    Carrega o CSV, limpa dados sujos, remove colunas inúteis \n    e normaliza as avaliações entre 0 e 1.\n    \"\"\"\n    try:\n        df = pd.read_csv(caminho)\n    except FileNotFoundError:\n        print(f\"Erro: Arquivo {caminho} não encontrado.\")\n        return None",
-        "detail": "src.preprocessamento",
-        "documentation": {}
-    },
-    {
-        "label": "executar_pso",
-        "kind": 2,
-        "importPath": "src.pso",
-        "description": "src.pso",
-        "peekOfCode": "def executar_pso(df, id_usuario, num_particulas, tamanho_roteiro, pesos_perfil, verbose=True):\n    \"\"\"\n    Executa o PSO e mede o tempo de convergência.\n    \"\"\"\n    num_dimensoes = len(df.columns)\n    inicio_tempo = time.time()\n    def funcao_objetivo(particulas):\n        scores = []\n        for p in particulas:\n            score = calcular_fitness(p, df, id_usuario, tamanho_roteiro, pesos_perfil)",
-        "detail": "src.pso",
-        "documentation": {}
-    },
-    {
-        "label": "auditar_calculo",
-        "kind": 2,
-        "importPath": "src.teste_auditoria",
-        "description": "src.teste_auditoria",
-        "peekOfCode": "def auditar_calculo():\n    print(f\"--- AUDITORIA DE CÁLCULO PARA: {USUARIO_ALVO} ---\")\n    # 1. Carregar Dados\n    df = carregar_e_processar_dados(\"data/google_review_ratings.csv\")\n    if df is None: return\n    # 2. Pegar índices do grupo \"Natureza\"\n    indices_natureza = MAPA_GRUPOS[GRUPO_TESTE]\n    print(f\"\\n1. Grupo '{GRUPO_TESTE}' usa as colunas de índice: {indices_natureza}\")\n    # 3. Dados do Usuário\n    notas_usuario = df.loc[USUARIO_ALVO].iloc[indices_natureza]",
-        "detail": "src.teste_auditoria",
-        "documentation": {}
-    },
-    {
-        "label": "USUARIO_ALVO",
+        "label": "user_id",
         "kind": 5,
-        "importPath": "src.teste_auditoria",
-        "description": "src.teste_auditoria",
-        "peekOfCode": "USUARIO_ALVO = \"User 55\"\nGRUPO_TESTE = \"Natureza\"\ndef auditar_calculo():\n    print(f\"--- AUDITORIA DE CÁLCULO PARA: {USUARIO_ALVO} ---\")\n    # 1. Carregar Dados\n    df = carregar_e_processar_dados(\"data/google_review_ratings.csv\")\n    if df is None: return\n    # 2. Pegar índices do grupo \"Natureza\"\n    indices_natureza = MAPA_GRUPOS[GRUPO_TESTE]\n    print(f\"\\n1. Grupo '{GRUPO_TESTE}' usa as colunas de índice: {indices_natureza}\")",
-        "detail": "src.teste_auditoria",
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "user_id = df.index[0]\nresultado = gerar_roteiro_pso(\n    df=df,\n    user_id=user_id,\n    tamanho_roteiro=5\n)\nprint(resultado)",
+        "detail": "main",
         "documentation": {}
     },
     {
-        "label": "GRUPO_TESTE",
+        "label": "resultado",
         "kind": 5,
-        "importPath": "src.teste_auditoria",
-        "description": "src.teste_auditoria",
-        "peekOfCode": "GRUPO_TESTE = \"Natureza\"\ndef auditar_calculo():\n    print(f\"--- AUDITORIA DE CÁLCULO PARA: {USUARIO_ALVO} ---\")\n    # 1. Carregar Dados\n    df = carregar_e_processar_dados(\"data/google_review_ratings.csv\")\n    if df is None: return\n    # 2. Pegar índices do grupo \"Natureza\"\n    indices_natureza = MAPA_GRUPOS[GRUPO_TESTE]\n    print(f\"\\n1. Grupo '{GRUPO_TESTE}' usa as colunas de índice: {indices_natureza}\")\n    # 3. Dados do Usuário",
-        "detail": "src.teste_auditoria",
-        "documentation": {}
-    },
-    {
-        "label": "labels",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "labels = list(pso_scores.keys())\npso_values = list(pso_scores.values())\nag_values = list(ag_scores.values())\nx = np.arange(len(labels))\nwidth = 0.35\nfig, ax = plt.subplots(figsize=(12, 7))\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho Final: PSO vs. Algoritmo Genético', fontsize=16)",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "pso_values",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "pso_values = list(pso_scores.values())\nag_values = list(ag_scores.values())\nx = np.arange(len(labels))\nwidth = 0.35\nfig, ax = plt.subplots(figsize=(12, 7))\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho Final: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "ag_values",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "ag_values = list(ag_scores.values())\nx = np.arange(len(labels))\nwidth = 0.35\nfig, ax = plt.subplots(figsize=(12, 7))\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho Final: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "x",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "x = np.arange(len(labels))\nwidth = 0.35\nfig, ax = plt.subplots(figsize=(12, 7))\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho Final: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)\nax.legend(fontsize=12)",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "width",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "width = 0.35\nfig, ax = plt.subplots(figsize=(12, 7))\nrects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho Final: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)\nax.legend(fontsize=12)\nax.set_ylim(0, 1.1)",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "rects1",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "rects1 = ax.bar(x - width/2, pso_values, width, label='PSO (Seu Algoritmo)', color='darkblue')\nrects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho Final: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)\nax.legend(fontsize=12)\nax.set_ylim(0, 1.1)\nax.bar_label(rects1, padding=3, fmt='%.4f')\nax.bar_label(rects2, padding=3, fmt='%.4f')",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "rects2",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "rects2 = ax.bar(x + width/2, ag_values, width, label='Alg. Genético (AG)', color='green')\nax.set_ylabel('Scores Médios (Média de 30 Execuções)', fontsize=14)\nax.set_title('Comparação de Desempenho Final: PSO vs. Algoritmo Genético', fontsize=16)\nax.set_xticks(x)\nax.set_xticklabels(labels, fontsize=12)\nax.legend(fontsize=12)\nax.set_ylim(0, 1.1)\nax.bar_label(rects1, padding=3, fmt='%.4f')\nax.bar_label(rects2, padding=3, fmt='%.4f')\noutput_dir = \"resultados\"",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "output_dir",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "output_dir = \"resultados\"\nos.makedirs(output_dir, exist_ok=True)\nsave_path = os.path.join(output_dir, 'grafico_comparacao_final_pso_vs_ag.png')\nplt.savefig(save_path)\nprint(f\"Gráfico de Comparação Final salvo em '{output_dir}'.\")",
-        "detail": "plot_comparison",
-        "documentation": {}
-    },
-    {
-        "label": "save_path",
-        "kind": 5,
-        "importPath": "plot_comparison",
-        "description": "plot_comparison",
-        "peekOfCode": "save_path = os.path.join(output_dir, 'grafico_comparacao_final_pso_vs_ag.png')\nplt.savefig(save_path)\nprint(f\"Gráfico de Comparação Final salvo em '{output_dir}'.\")",
-        "detail": "plot_comparison",
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "resultado = gerar_roteiro_pso(\n    df=df,\n    user_id=user_id,\n    tamanho_roteiro=5\n)\nprint(resultado)",
+        "detail": "main",
         "documentation": {}
     }
 ]
